@@ -1,3 +1,406 @@
-<Solution>
-  <Project Path="Assignment/Assignment.csproj" />
-</Solution>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace CSharpAssignment
+{
+    class Program
+    {
+        // Class-level field for scope demonstrations
+        static int classField = 100;
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("╔════════════════════════════════════════════════════════════════════╗");
+            Console.WriteLine("║           C# FUNDAMENTALS - ASSIGNMENT WITH ANSWERS                ║");
+            Console.WriteLine("║                      20 Questions                                  ║");
+            Console.WriteLine("╚════════════════════════════════════════════════════════════════════╝\n");
+
+
+
+            #region Question 1: Regions
+// ══════════════════════════════════════════════════════════════════════
+// QUESTION 2: REGIONS
+// ══════════════════════════════════════════════════════════════════════
+//
+// Q: What is the purpose of #region and #endregion directives in C#? 
+//    How do they help in code organization?
+//
+// ══════════════════════════════════════════════════════════════════════
+
+//Nested Region Example
+/*#region Methods
+public void PrintFullName()
+{
+  Console.WriteLine($"{FirstName} {LastName}");
+}
+endregionregion Properties
+Console.WriteLine("\n" + new string('-', 70) + "\n");
+  #endregion
+
+  بيخلي الكود منظم وسهل التنقل.
+
+بيقلل الزحمة في الملفات الكبيرة
+
+  /*
+--------------------------------------------------------------------------------
+
+
+
+  #region Question 2: Variable Declaration - Explicit vs Implicit
+  // ══════════════════════════════════════════════════════════════════════
+  // QUESTION 3: VARIABLE DECLARATION - EXPLICIT VS IMPLICIT
+  // ══════════════════════════════════════════════════════════════════════
+  //
+  // Q: What is the difference between explicit and implicit variable 
+  //    declaration in C#? Provide examples of both.
+  //
+  // ══════════════════════════════════════════════════════════════════════
+
+            //Explicit Declaration)
+بيكتب نوع المتغير بنفسنا 
+
+  // EXPLICIT DECLARATION 
+int number = 10;          
+
+  // IMPLICIT DECLARATION 
+var number = 10;          
+  #endregion
+//هنا بنستخدم الكلمة المفتاحية var، والكومبيلر بيستنتج النوع من القيمة.
+
+
+  #region Question 3: Constants
+  // ══════════════════════════════════════════════════════════════════════
+  // QUESTION 4: CONSTANTS
+  // ══════════════════════════════════════════════════════════════════════
+  //
+  // Q: Write the syntax for declaring a constant in C#. Why would you use 
+  //    a constant instead of a regular variable?
+  //
+  // ══════════════════════════════════════════════════════════════════════
+
+
+
+  // Constant examples
+const double Pi = 3.3 //  
+  #endregion
+ثبات القيمة: القيمة لا تتغير طول البرنامج.
+
+
+  #region Question 4: Class-level vs Method-level Scope
+  // ══════════════════════════════════════════════════════════════════════
+  // QUESTION 4: CLASS-LEVEL VS METHOD-LEVEL SCOPE
+  // ══════════════════════════════════════════════════════════════════════
+  //
+  // Q: Explain the difference between class-level scope and method-level 
+  //    scope with examples.
+  //
+  // ══════════════════════════════════════════════════════════════════════
+Class-level scope
+المتغير متاح لكل الميثودات داخل الكلاس
+بيعيش طول عمر الكائن (object)
+مثال:private string name;
+-----------------------------------------------------------------------------
+Method-level scope
+المتغير متاح فقط داخل الميثود اللي اتعرّف فيه
+بيعيش طول تنفيذ الميثود فقط
+مثال: int age = 20;
+------------------------------------------------------------------
+
+
+  #endregion
+
+  #region Question 5: Block-level Scope
+  // ══════════════════════════════════════════════════════════════════════
+  // QUESTION 5: BLOCK-LEVEL SCOPE
+  // ══════════════════════════════════════════════════════════════════════
+  //
+  // Q: What is block-level scope? Give an example showing a variable that 
+  //    is only accessible within a specific block.
+  //
+  // ══════════════════════════════════════════════════════════════════════
+ //  Block-level scope يعني المتغير يبقى متاح داخل الـ block فقط.
+مثال:
+if (true) {
+   let x = 10;
+   console.log(x); // يشتغل
+}
+console.log(x); // خطأ
+  #endregion
+
+  #region Question 6: Variable Lifetime - Local vs Static
+  // ══════════════════════════════════════════════════════════════════════
+  // QUESTION 6: VARIABLE LIFETIME - LOCAL VS STATIC
+  // ══════════════════════════════════════════════════════════════════════
+  //
+  // Q: What is variable lifetime? Explain the lifetime of local variables 
+  //    vs static variables.
+  //
+  // ══════════════════════════════════════════════════════════════════════
+Local variables → عمرها قصير، بتتخلق مع بداية الدالة وتتمسح بعد ما تخلص.
+
+Static variables → عمرها طويل جدًا، بتفضل موجودة طول البرنامج، لكن نطاقها يفضل محدود.
+
+  #endregion
+
+  #region Question 7: Garbage Collector
+  // ══════════════════════════════════════════════════════════════════════
+  // QUESTION 7: GARBAGE COLLECTOR
+  // ══════════════════════════════════════════════════════════════════════
+  //
+  // Q: What is the Garbage Collector in C#? How does it affect the 
+  //    lifetime of objects?
+  //
+  // ══════════════════════════════════════════════════════════════════════
+The Garbage Collector in C# automatically manages memory by deleting objects that are no longer used.
+
+  #endregion
+
+  #region Question 8: Variable Shadowing
+  // ══════════════════════════════════════════════════════════════════════
+  // QUESTION 8: VARIABLE SHADOWING
+  // ══════════════════════════════════════════════════════════════════════
+  //
+  // Q: What is variable shadowing in C#? Does C# allow shadowing in 
+  //    nested blocks within the same method?
+  //
+  // ══════════════════════════════════════════════════════════════════════
+
+  #endregion
+Variable Shadowing هو إنك تعرّف متغير جديد بنفس اسم متغير موجود بالفعل في نطاق خارجي.
+
+المتغير الجديد "بيظلل" أو "يغطي" على المتغير القديم داخل النطاق (scope) بتاعه.
+
+النتيجة: لما تنادي على الاسم ده جوه البلوك الداخلي، اللي بيتنفذ هو المتغير الجديد، مش القديم.
+  #region Question 9: C# Naming Rules
+  // ══════════════════════════════════════════════════════════════════════
+  // QUESTION 9: C# NAMING RULES
+  // ══════════════════════════════════════════════════════════════════════
+  //
+  // Q: List five rules that must be followed when naming variables in C#.
+  //
+  // ══════════════════════════════════════════════════════════════════════
+لما تسمي متغير في C# لازم تراعي:
+
+يبدأ بحرف أو _
+
+بدون مسافات
+
+مش كلمة محجوزة
+
+حسّاس لحالة الأحرف
+
+اسم واضح ومعبّر
+  #endregion
+
+  #region Question 10: Naming Conventions
+  // ══════════════════════════════════════════════════════════════════════
+  // QUESTION 10: NAMING CONVENTIONS
+  // ══════════════════════════════════════════════════════════════════════
+  //
+  // Q: What naming conventions are recommended for: (a) local variables, 
+  //    (b) class names, (c) constants?
+  //
+  // ══════════════════════════════════════════════════════════════════════
+  #endregion
+Local variables → camelCase 
+
+Class names → PascalCase 
+
+Constants → ALL_CAPS 
+
+
+
+
+  #region Question 11: Error Types
+  // ══════════════════════════════════════════════════════════════════════
+  // QUESTION 11: ERROR TYPES
+  // ══════════════════════════════════════════════════════════════════════
+  //
+  // Q: Compare and contrast syntax errors, runtime errors, and logical 
+  //    errors. Provide an example of each.
+  //
+  // ══════════════════════════════════════════════════════════════════════
+Syntax Errors → أخطاء في كتابة الكود، المترجم يوقف التنفيذ.
+
+Runtime Errors → أخطاء أثناء التشغيل زي القسمة على صفر.
+
+Logical Errors → الكود يشتغل لكن النتيجة غلط بسبب خطأ في المنطق.
+
+
+  #endregion
+
+  #region Question 12: Exception Handling Importance
+  // ══════════════════════════════════════════════════════════════════════
+  // QUESTION 12: EXCEPTION HANDLING IMPORTANCE
+  // ══════════════════════════════════════════════════════════════════════
+  //
+  // Q: Why is exception handling important in C#? What would happen if 
+  //    you don't handle exceptions?
+  //
+  // ══════════════════════════════════════════════════════════════════════
+
+            Exception handling in C# is important because it prevents program crashes and allows errors to be handled gracefully. 
+If exceptions are not handled, the program will terminate immediately when an error occurs.
+
+            code ::try {
+    int a = 10;
+    int b = 0;
+    Console.WriteLine(a / b); // خطأ: قسمة على صفر
+}
+catch (DivideByZeroException ex) {
+    Console.WriteLine("Cannot divide by zero!"); // التعامل مع الخطأ
+}
+
+
+  #endregion
+
+  #region Question 13: try-catch-finally
+  // ══════════════════════════════════════════════════════════════════════
+  // QUESTION 13: TRY-CATCH-FINALLY
+  // ══════════════════════════════════════════════════════════════════════
+  //
+  // Q: Write a code example demonstrating try-catch-finally. Explain when 
+  //    the finally block executes.
+  //
+  // ══════════════════════════════════════════════════════════════════════
+try → the code that may cause an error.
+
+catch → handling the error if it occurs.
+
+finally → always executed at the end, to ensure closing or cleaning up resources.
+  #endregion
+
+  #region Question 14: Common Built-in Exceptions
+  // ══════════════════════════════════════════════════════════════════════
+  // QUESTION 14: COMMON BUILT-IN EXCEPTIONS
+  // ══════════════════════════════════════════════════════════════════════
+  //
+  // Q: List and explain five common built-in exceptions in C# with 
+  //    scenarios when each would occur.
+  //
+  // ══════════════════════════════════════════════════════════════════════
+  #endregion
+
+            DivideByZeroException → قسمة على صفر.
+
+NullReferenceException → استخدام كائن قيمته null.
+
+IndexOutOfRangeException → الوصول لمؤشر خارج حدود المصفوفة.
+
+InvalidCastException → تحويل غير صالح بين أنواع البيانات.
+
+FormatException → صيغة إدخال غير صحيحة للتحويل.
+
+
+  #region Question 15: Multiple catch Blocks
+  // ══════════════════════════════════════════════════════════════════════
+  // QUESTION 15: MULTIPLE CATCH BLOCKS
+  // ══════════════════════════════════════════════════════════════════════
+  //
+  // Q: Why is the order of catch blocks important when handling multiple 
+  //    exceptions? Write code showing correct ordering.
+  //
+  // ══════════════════════════════════════════════════════════════════════
+
+            ترتيب الـ catch blocks مهم علشان الاستثناءات الخاصة تتعامل معاها قبل العامة.
+
+لازم تبدأ بالـ specific exceptions وبعدها تكتب الـ general exception في الآخر.
+  #endregion
+
+  #region Question 16: throw Keyword
+  // ══════════════════════════════════════════════════════════════════════
+  // QUESTION 16: THROW KEYWORD
+  // ══════════════════════════════════════════════════════════════════════
+  //
+  // Q: What is the difference between 'throw' and 'throw ex' when 
+  //    re-throwing an exception? Which one preserves the stack trace?
+  //
+  // ══════════════════════════════════════════════════════════════════════
+  #endregion
+
+
+            استخدم throw لإعادة رمي الاستثناء مع الحفاظ على الـ stack trace الأصلي.
+
+لو استخدمت throw ex، هتفقد تفاصيل مكان الخطأ الأصلي وهيبان كأنه حصل في مكان إعادة الرمي.
+
+إذن: throw preserves the stack trace, بينما throw ex does not.
+
+
+            الفرق بينهم
+throw
+
+يعيد رمي الاستثناء الحالي زي ما هو.
+
+بيحتفظ بالـ stack trace الأصلي (يعني معلومات مكان الخطأ الحقيقي).
+
+ده الأفضل علشان تقدر تعرف مكان الخطأ الأصلي وقت الـ debugging.
+
+throw ex
+
+بيرمي نسخة جديدة من الاستثناء اللي استقبلته.
+
+بيمسح الـ stack trace الأصلي ويبدأ واحد جديد من مكان الـ throw ex.
+
+النتيجة: بتفقد معلومات مهمة عن مكان الخطأ الحقيقي.
+
+
+  #region Question 17: Stack and Heap Memory
+  // ══════════════════════════════════════════════════════════════════════
+  // QUESTION 17: STACK AND HEAP MEMORY
+  // ══════════════════════════════════════════════════════════════════════
+  //
+  // Q: Explain the differences between Stack and Heap memory in C#. 
+  //    What types of data are stored in each?
+  //
+  // ══════════════════════════════════════════════════════════════════════
+
+            Stack → سريع، بيخزن المتغيرات المحلية والـ method calls، عمره قصير.
+
+Heap → بيخزن الكائنات والـ reference types، عمره أطول، يدار بواسطة Garbage Collector.
+  #endregion
+
+
+  #region Question 18: Value Types vs Reference Types
+  // ══════════════════════════════════════════════════════════════════════
+  // QUESTION 18: VALUE TYPES VS REFERENCE TYPES
+  // ══════════════════════════════════════════════════════════════════════
+  //
+  // Q: Write a code example showing how value types and reference types 
+  //    behave differently when assigned to another variable.
+  //
+  // ══════════════════════════════════════════════════════════════════════
+
+            Value types → نسخ القيمة، التغيير مستقل.
+
+Reference types → نسخ المرجع، التغيير مشترك.
+ 
+            
+            #endregion
+
+  #region Question 19: Object in C#
+  // ══════════════════════════════════════════════════════════════════════
+  // QUESTION 19: OBJECT IN C#
+  // ══════════════════════════════════════════════════════════════════════
+  //
+  // Q: Why is 'object' considered the base type of all types in C#? 
+  //    What methods does every type inherit from System.Object?
+  //
+  // ══════════════════════════════════════════════════════════════════════
+
+
+            object هو base type لكل الأنواع في C#.
+
+كل الأنواع بتورث دوال أساسية زي: ToString(), Equals(), GetHashCode(), GetType(), و MemberwiseClone().
+
+ده بيدي توحيد ومرونة في التعامل مع كل الأنواع داخل اللغة.
+  #endregion
+
+}
+
+
+#endregion
+}
+
+
+}
